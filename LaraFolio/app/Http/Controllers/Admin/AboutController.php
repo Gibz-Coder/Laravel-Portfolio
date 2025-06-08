@@ -18,7 +18,7 @@ class AboutController extends Controller
         return view('admin.abouts.edit', compact('about'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -26,6 +26,11 @@ class AboutController extends Controller
         ]);
 
         $about = About::latest()->first();
+
+        // If no about record exists, create a new one
+        if (!$about) {
+            $about = new About();
+        }
         $about->name = $request->name;
         $about->email = $request->email;
         $about->phone = $request->phone;
@@ -34,30 +39,41 @@ class AboutController extends Controller
         $about->summary = $request->summary;
         $about->tagline = $request->tagline;
         
-        if ($request->home_image != '') {
-            $image = public_path() . "assets/img/" . $about->home_image;
-            if (file_exists($image)) {
-                unlink($image);
+        if ($request->hasFile('home_image')) {
+            // Delete old image if exists
+            if ($about->home_image) {
+                $old_image = public_path('assets/img/' . $about->home_image);
+                if (file_exists($old_image)) {
+                    unlink($old_image);
+                }
             }
-            $file_name = time() . '.' . $request->home_image->getClientOriginalExtension();
+            $file_name = time() . '_home.' . $request->home_image->getClientOriginalExtension();
             $request->home_image->move(public_path('assets/img'), $file_name);
             $about->home_image = $file_name;
         }
-        if ($request->banner_image != '') {
-            $image = public_path() . "assets/img/" . $about->banner_image;
-            if (file_exists($image)) {
-                unlink($image);
+
+        if ($request->hasFile('banner_image')) {
+            // Delete old image if exists
+            if ($about->banner_image) {
+                $old_image = public_path('assets/img/' . $about->banner_image);
+                if (file_exists($old_image)) {
+                    unlink($old_image);
+                }
             }
-            $file_name = time() . '.' . $request->banner_image->getClientOriginalExtension();
+            $file_name = time() . '_banner.' . $request->banner_image->getClientOriginalExtension();
             $request->banner_image->move(public_path('assets/img'), $file_name);
             $about->banner_image = $file_name;
         }
-        if ($request->cv != '') {
-            $image = public_path() . "assets/img/" . $about->banner_image;
-            if (file_exists($image)) {
-                unlink($image);
+
+        if ($request->hasFile('cv')) {
+            // Delete old CV if exists
+            if ($about->cv) {
+                $old_cv = public_path('assets/img/' . $about->cv);
+                if (file_exists($old_cv)) {
+                    unlink($old_cv);
+                }
             }
-            $file_name = time() . '.' . $request->cv->getClientOriginalExtension();
+            $file_name = time() . '_cv.' . $request->cv->getClientOriginalExtension();
             $request->cv->move(public_path('assets/img'), $file_name);
             $about->cv = $file_name;
         }

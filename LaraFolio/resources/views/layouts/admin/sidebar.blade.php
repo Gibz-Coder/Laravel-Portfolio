@@ -13,7 +13,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="{{ (request()->is('admin/abouts')) ? 'nav-active' : '' }}" href="{{ url('/admin/abouts') }}">
+                        <a class="{{ (request()->is('admin/abouts*') || request()->is('admin/medias*')) ? 'nav-active' : '' }}" href="{{ url('/admin/abouts') }}">
                             <span><i class="fas fa-user"> </i></span>
                             <span>About Me</span>
                         </a>
