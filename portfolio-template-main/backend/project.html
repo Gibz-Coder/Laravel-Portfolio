@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+
+    <!--==================== UNICONS ====================-->
+ <!--<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">-->
+
+    <link rel="stylesheet" href="../../template/assets/css/admin.css" />      
+    <title>Web Admin </title>
+
+</head>
+
+<body>
+
+    <header >
+        <nav>
+            <ul>
+                <li><img src="../../template/assets/img/logo.png" alt=""></li>
+            </ul>
+            <ul class="header-profile">
+                <li class="avatar-item"><img src="../../template/assets/img/avatar.jpg" alt="" class="avatar-img"></li>
+                <li><span>team2devs.com</span></li>
+            </ul>
+        </nav>
+
+        <span class="header-profile-nav">
+            <span> <i class="fas fa-sort-up"></i></span>
+        <ul>
+            <li><a href="#">Profile</a></li>
+            <hr>
+            <li><a href="#">Message</a></li>
+            <hr>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        </span>
+
+    </header>
+    <aside>
+        <nav class="nav">
+            <div class="nav-wrapper">
+                <span class="nav__close">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <div class="nav-list">
+                    <ul>
+                        <li>
+                            <a  href="dashboard.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="about.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>About Me</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="service.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="skill.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Skills</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="education.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Educations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="experience.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Experiences</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="project.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="testimonial.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Testimonials</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="message.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-active" href="user.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li>
+                            <a class="nav-active" href="setting.html">
+                                <span><i class="fas fa-cog "> </i></span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </aside>
+    <main>
+        
+            <!--==================== PROJECTS ====================-->
+            <section class="projects" id="projects">
+                <div class="titlebar">
+                    <h1>Projects </h1>
+                    <button class="btn__open--modal">New Project</button>
+                </div>
+                <div class="table">
+
+                    <div class="table-filter">
+                        <div>
+                            <ul class="table-filter-list">
+                                <li>
+                                    <p class="table-filter-link link-active">All</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="table-search">
+                        <div>
+                            <select class="search-select" name="" id="">
+                                <option value="">Filter Project</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <input class="search-input" type="text" name="search" placeholder="Search Project...">
+                        </div>
+                    </div>
+        
+                    <div class="project_table-heading">
+                        <p>Image</p> 
+                        <p>Title</p>
+                        <p>Description</p>
+                        <p>Link</p>
+                        <p>Actions</p>
+                    </div>
+                    <!-- item 1 -->
+                    <div class="project_table-items">
+                        <p>
+                            <img src="../../template/assets/img/no-image.png" alt="" class="project_img-list">
+                        </p>
+                        <p>Backend Developer</p>
+                        <p>Backend Developer</p>
+                        <p>Backend Developer</p>
+                        <div>
+                            <button class="btn success">
+                                    <i class="fas fa-pencil-alt"></i> 
+                                </button>
+                            <button class="btn danger">
+                                    <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-paginate">
+                        <div class="pagination">
+                            <a href="#" class="btn">&laquo;</a>
+                            <a href="#" class="btn active">1</a>
+                            <a href="#" class="btn">2</a>
+                            <a href="#" class="btn">3</a>
+                            <a href="#" class="btn">&raquo;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!--===================ADD PROJECT ====================-->
+             <section class="about" id="project">
+                <div class="titlebar">
+                    <h1>Create Project </h1>
+                    <button>Save Project</button>
+                </div>
+                <div class="card-wrapper">
+                    <div class="wrapper_left">
+                        <div class="card">
+                            <label>Title</label>
+                            <input type="text"  />
+
+                            <label>Description</label>
+                            <textarea cols="10" rows="5"  ></textarea>
+
+                            <label>Link</label>
+                            <input type="text"  />
+                        </div>
+                    </div>
+                    
+                    <div class="wrapper_right">
+                        <div class="card">
+                            <img src="../../template/assets/img/no-image.png" alt="" class="project_img">
+                            <input type="file">
+                        </div>    
+                    </div>
+                    
+                </div>
+                <div class="titlebar">
+                    <h1></h1>
+                    <button>Save Project</button>
+                </div>
+            </section>
+             <!--===================EDIT PROJECT ====================-->
+             <section class="about" id="project">
+                <div class="titlebar">
+                    <h1>Edit Project </h1>
+                    <button>Update Project</button>
+                </div>
+                <div class="card-wrapper">
+                    <div class="wrapper_left">
+                        <div class="card">
+
+                            <label>Title</label>
+                            <input type="text" class="input" />
+
+                            <label>Description</label>
+                            <textarea cols="10" rows="5"  ></textarea>
+
+                            <label>Link</label>
+                            <input type="text" class="input" />
+                                
+                        </div>
+                    </div>
+                    
+                    <div class="wrapper_right ">
+                        <div class="card">
+                            <img src="../../template/assets/img/no-image.png" alt="" class="project_img">
+                            <input type="file">
+                        </div>    
+                    </div>
+                    
+                </div>
+                <div class="titlebar">
+                    <h1></h1>
+                    <button>Update Project</button>
+                </div>
+            </section><br><br><br>
+        </div>
+    </main>
+    <script src="../../template/assets/js/admin.js"></script>
+</body>
+
+</html>

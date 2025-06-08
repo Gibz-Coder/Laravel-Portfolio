@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../template/assets/css/admin.css" />  
+    <title>Web Admin </title>
+
+</head>
+
+<body>
+
+    <header >
+        <nav>
+            <ul>
+                <li><img src="../../template/assets/img/logo.png" alt=""></li>
+            </ul>
+            <ul class="header-profile">
+                <li class="avatar-item"><img src="../../template/assets/img/avatar.jpg" alt="" class="avatar-img"></li>
+                <li><span>team2devs.com</span></li>
+            </ul>
+        </nav>
+
+        <span class="header-profile-nav">
+            <span> <i class="fas fa-sort-up"></i></span>
+        <ul>
+            <li><a href="#">Profile</a></li>
+            <hr>
+            <li><a href="#">Message</a></li>
+            <hr>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        </span>
+
+    </header>
+    <aside>
+        <nav class="nav">
+            <div class="nav-wrapper">
+                <span class="nav__close">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <div class="nav-list">
+                    <ul>
+                        <li>
+                            <a  href="dashboard.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="about.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>About Me</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="service.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="skill.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Skills</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="education.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Educations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="experience.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Experiences</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="project.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="testimonial.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Testimonials</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="message.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-active" href="user.html">
+                                <span><i class="fas fa-home"> </i></span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li>
+                            <a class="nav-active" href="setting.html">
+                                <span><i class="fas fa-cog "> </i></span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </aside>
+    <main>
+        <div class="main-content">
+            <!--==================== ABOUT ====================-->
+            <section class="about" id="about">
+                <div class="titlebar">
+                    <h1>My Profile</h1>
+                    <button>Save Changes</button>
+                </div>
+                <div class="card-wrapper">
+                    <div class="wrapper_left">
+                        <div class="card" >
+                            <label>Full Name</label>
+                            <input type="text">
+
+                            <label>Email</label>
+                            <input type="email" />
+
+                            <label>Experience (optional)</label>
+                            <textarea cols="10" rows="5"  ></textarea>  
+                                
+                            <label>Password (leave blank if you don't want to change)</label>
+                            <input type="password" />
+                        </div>
+                    </div>
+                    <div class="wrapper_right">
+                        <div class="card">
+                            <img src="img/avatar.jpg" alt="" class="avatar_img">
+                            <input type="file">  
+                        </div>   
+                    </div>
+                </div>
+                
+                <div class="titlebar">
+                    <h1></h1>
+                    <button>Save Changes</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="../../template/assets/js/admin.js"></script>
+</body>
+
+</html>
