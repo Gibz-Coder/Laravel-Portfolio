@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use Database\Seeders\AboutSeeder;
 use Database\Seeders\MediaSeeder;
+use Database\Seeders\ServiceSeeder;
 
 // use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call(AboutSeeder::class);
         $this->call(MediaSeeder::class);
+        $this->call(ServiceSeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',

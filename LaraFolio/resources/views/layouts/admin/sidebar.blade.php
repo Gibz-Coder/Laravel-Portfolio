@@ -19,7 +19,7 @@
                         </a>
                     </li>
                     <li>
-                        <a  href="service.html">
+                        <a class="{{ (request()->is('admin/services*')) ? 'nav-active' : '' }}" href="{{ url('/admin/services') }}">
                             <span><i class="fas fa-handshake"> </i></span>
                             <span>Services</span>
                         </a>

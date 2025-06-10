@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
+use App\Http\Controllers\Admin\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,12 @@ Route::get('/admin/medias', [MediaController::class, 'index'])->name('admin.medi
 Route::post('/admin/medias', [MediaController::class, 'store'])->name('admin.medias.store');
 Route::delete('/admin/medias/{media}', [MediaController::class, 'destroy'])->name('admin.medias.destroy');
 
-
-
-
+//Service Routes//
+Route::get('/admin/services', [ServiceController::class, 'index'])->name('admin.services.index');
+Route::post('/admin/services', [ServiceController::class, 'store'])->name('admin.services.store');
+Route::get('/admin/services/{service}/edit', [ServiceController::class, 'edit'])->name('admin.services.edit');
+Route::patch('/admin/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
+Route::delete('/admin/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
 
 
 Route::get('/{any}', function () {
