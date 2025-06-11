@@ -12,7 +12,7 @@
           </p>
           <div>
           <br>
-            <a href="/" class="btn btn-link">Back to Home</a>
+            <a href="/admin/dashboard" class="btn btn-link">Back to Home</a>
           </div>
         </div>
     </div>

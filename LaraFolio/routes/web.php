@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SkillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,10 @@ Route::post('/admin/services', [ServiceController::class, 'store'])->name('admin
 Route::get('/admin/services/{service}/edit', [ServiceController::class, 'edit'])->name('admin.services.edit');
 Route::patch('/admin/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
 Route::delete('/admin/services/{service}', [ServiceController::class, 'destroy'])->name('admin.services.destroy');
+
+//Skills Routes//
+Route::get('/admin/skills', [SkillController::class, 'index'])->name('admin.skills.index');
+
 
 
 Route::get('/{any}', function () {

@@ -25,43 +25,43 @@
                         </a>
                     </li>
                     <li>
-                        <a href="skill.html">
+                        <a class="{{ (request()->is('admin/skills*')) ? 'nav-active' : '' }}" href="{{ url('/admin/skills') }}">
                             <span><i class="fas fa-star"> </i></span>
                             <span>Skills</span>
                         </a>
                     </li>
                     <li>
-                        <a href="education.html">
+                        <a class="{{ (request()->is('admin/educations*')) ? 'nav-active' : '' }}" href="{{ url('/admin/educations') }}">
                             <span><i class="fas fa-graduation-cap"> </i></span>
                             <span>Educations</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="experience.html">
+                        <a class="{{ (request()->is('admin/experiences*')) ? 'nav-active' : '' }}" href="{{ url('/admin/experiences') }}">
                             <span><i class="fas fa-toolbox"> </i></span>
                             <span>Experiences</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="project.html">
+                        <a class="{{ (request()->is('admin/projects*')) ? 'nav-active' : '' }}" href="{{ url('/admin/projects') }}">
                             <span><i class="fas fa-bars"> </i></span>
                             <span>Projects</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="testimonial.html">
+                        <a class="{{ (request()->is('admin/testimonials*')) ? 'nav-active' : '' }}" href="{{ url('/admin/testimonials') }}">
                             <span><i class="fas fa-medal"> </i></span>
                             <span>Testimonials</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="message.html">
+                        <a class="{{ (request()->is('admin/messages*')) ? 'nav-active' : '' }}" href="{{ url('/admin/messages') }}">
                             <span><i class="fas fa-envelope"> </i></span>
                             <span>Messages</span>
                         </a>
                     </li>
                     <li>
-                        <a  href="user.html">
+                        <a class="{{ (request()->is('admin/users*')) ? 'nav-active' : '' }}" href="{{ url('/admin/users') }}">
                             <span><i class="fas fa-user"> </i></span>
                             <span>Users</span>
                         </a>
