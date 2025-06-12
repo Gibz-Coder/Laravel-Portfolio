@@ -14,19 +14,19 @@
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/abouts*') || request()->is('admin/medias*')) ? 'nav-active' : '' }}" href="{{ url('/admin/abouts') }}">
-                            <span><i class="fas fa-user"> </i></span>
+                            <span><i class="fas fa-tachometer-alt"> </i></span>
                             <span>About Me</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/services*')) ? 'nav-active' : '' }}" href="{{ url('/admin/services') }}">
-                            <span><i class="fas fa-handshake"> </i></span>
+                            <span><i class="fas fa-wrench"> </i></span>
                             <span>Services</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/skills*')) ? 'nav-active' : '' }}" href="{{ url('/admin/skills') }}">
-                            <span><i class="fas fa-star"> </i></span>
+                            <span><i class="fas fa-cogs"> </i></span>
                             <span>Skills</span>
                         </a>
                     </li>

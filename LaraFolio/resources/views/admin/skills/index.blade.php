@@ -5,6 +5,8 @@
         <h1>Skills </h1>
         <button class="open-modal">New Skill</button>
     </div>
+    @include('admin.skills.create')
+    @include('includes.flash_message')
     <div class="table">
 
         <div class="table-filter">
@@ -45,18 +47,27 @@
                 <strong>{{ $skill->proficiency }}%</strong>
             </div>
             @if ($skill->service)
-                <p>{{ $skill->service->nane }}</p>
+                <p>{{ $skill->service->name }}</p>
             @else
                 <p></p>
             @endif
             
             <div>
-                <button class="btn-icon success">
+                <button class="btn-icon success edit-skill-btn"
+                        data-skill-id="{{ $skill->id }}"
+                        data-skill-name="{{ $skill->name }}"
+                        data-skill-proficiency="{{ $skill->proficiency }}"
+                        data-skill-service-id="{{ $skill->service_id ?? '' }}">
                     <i class="fas fa-pencil-alt"></i>
                 </button>
-                <button class="btn-icon danger" >
-                    <i class="far fa-trash-alt"></i>
-                </button>
+                
+                <form method="POST" action="{{ route('admin.skills.destroy', $skill->id) }}" style="display: inline;">
+                    @method('DELETE')
+                    @csrf
+                    <button class="danger" class="far fa-trash-alt" onclick="return confirm('Are you sure you want to delete this skill?')">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>
             </div>
         </div>
         @endforeach
@@ -64,37 +75,15 @@
             {{ $skills->links('includes.pagination') }}
         </div>
     </div>
-    <!-------------- SKILLS MODAL --------------->
-    <div class="modal ">
-        <div class="modal-content">
-            <h2>Create Skill</h2>
-            <span class="close-modal">×</span>
-            <hr>
-            <div>
-                <p>Name</p>
-                <input type="text" class="input" />
-
-                <p>Proficiency</p>
-                <input type="text" class="input" />
-
-                <p>Service</p>
-                <select class="inputSelect" name="" id="">
-                    <option value="">Front-end developer</option>
-                    <option value="">Backend developer</option>
-                </select>
-            </div>
-            <hr>
-            <div class="modal-footer">
-                <button class="close-modal">
-                    Cancel
-                </button>
-                <button class="secondary close-modal">
-                    <span><i class="fa fa-spinner fa-spin"></i></span>
-                    Save
-                </button>
-            </div>
-        </div>
-    </div>
 </section>
+
+<!-- Edit Skill Modal -->
+<div id="edit-skill-modal" style="display: none;">
+    @php
+        $editSkill = new App\Models\Skill();
+        $editSkill->id = 0; // Placeholder ID that will be updated by JavaScript
+    @endphp
+    @include('admin.skills.edit', ['skill' => $editSkill])
+</div>
 
 @endsection

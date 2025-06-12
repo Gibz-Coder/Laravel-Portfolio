@@ -74,6 +74,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Skills modal elements
+    const editSkillModal = document.getElementById('edit-skill-modal');
+    const editSkillModalInner = editSkillModal ? editSkillModal.querySelector('.edit-skill-modal') : null;
+    const editSkillForm = document.getElementById('edit-skill-form');
+    const editSkillBtns = document.querySelectorAll('.edit-skill-btn');
+
+    // Handle close modal buttons for skills
+    closeShowModal.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            // Close edit skill modal
+            if (editSkillModal) {
+                editSkillModal.style.display = 'none';
+            }
+            if (editSkillModalInner) {
+                editSkillModalInner.classList.remove('show');
+            }
+        });
+    });
+
+    // Handle edit skill buttons
+    if (editSkillBtns.length > 0) {
+        editSkillBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                // Get skill data from button attributes
+                const skillId = btn.getAttribute('data-skill-id');
+                const skillName = btn.getAttribute('data-skill-name');
+                const skillProficiency = btn.getAttribute('data-skill-proficiency');
+                const skillServiceId = btn.getAttribute('data-skill-service-id');
+
+                // Populate form fields
+                const nameInput = document.getElementById('edit-skill-name');
+                const proficiencyInput = document.getElementById('edit-skill-proficiency');
+                const serviceSelect = document.getElementById('edit-skill-service');
+
+                if (nameInput) nameInput.value = skillName;
+                if (proficiencyInput) proficiencyInput.value = skillProficiency;
+                if (serviceSelect) serviceSelect.value = skillServiceId;
+
+                // Update form action URL
+                if (editSkillForm) {
+                    editSkillForm.action = `/admin/skills/${skillId}`;
+                }
+
+                // Show edit modal
+                if (editSkillModal) {
+                    editSkillModal.style.display = 'block';
+                }
+                if (editSkillModalInner) {
+                    editSkillModalInner.classList.add('show');
+                }
+            });
+        });
+    }
+
     // Check for validation errors and keep modal open
     const validationErrors = document.getElementById('validation-errors');
     if (validationErrors) {

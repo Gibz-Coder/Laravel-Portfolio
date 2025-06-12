@@ -40,6 +40,9 @@ Route::delete('/admin/services/{service}', [ServiceController::class, 'destroy']
 
 //Skills Routes//
 Route::get('/admin/skills', [SkillController::class, 'index'])->name('admin.skills.index');
+Route::post('/admin/skills', [SkillController::class, 'store'])->name('admin.skills.store');
+Route::patch('/admin/skills/{skill}', [SkillController::class, 'update'])->name('admin.skills.update');
+Route::delete('/admin/skills/{skill}', [SkillController::class, 'destroy'])->name('admin.skills.destroy');
 
 
 
