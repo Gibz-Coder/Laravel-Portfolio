@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\Admin\EducationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,11 @@ Route::post('/admin/skills', [SkillController::class, 'store'])->name('admin.ski
 Route::patch('/admin/skills/{skill}', [SkillController::class, 'update'])->name('admin.skills.update');
 Route::delete('/admin/skills/{skill}', [SkillController::class, 'destroy'])->name('admin.skills.destroy');
 
-
+//Education Routes//
+Route::get('/admin/educations', [EducationController::class, 'index'])->name('admin.educations.index');
+Route::post('/admin/educations', [EducationController::class, 'store'])->name('admin.educations.store');
+Route::patch('/admin/educations/{education}', [EducationController::class, 'update'])->name('admin.educations.update');
+Route::delete('/admin/educations/{education}', [EducationController::class, 'destroy'])->name('admin.educations.destroy');
 
 Route::get('/{any}', function () {
     return view('notFoundPage');

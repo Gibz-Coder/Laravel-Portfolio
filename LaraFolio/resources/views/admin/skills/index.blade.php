@@ -7,6 +7,12 @@
     </div>
     @include('admin.skills.create')
     @include('includes.flash_message')
+
+    <!-- Hidden input to detect validation errors for create form -->
+    @if ($errors->any() && !request()->has('edit'))
+        <input type="hidden" id="has-create-errors" value="1">
+    @endif
+
     <div class="table">
 
         <div class="table-filter">

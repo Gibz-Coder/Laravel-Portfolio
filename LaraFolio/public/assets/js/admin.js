@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Auto-open create modal if there are validation errors
+    const hasCreateErrors = document.getElementById('has-create-errors');
+    if (hasCreateErrors && showAddModal) {
+        showAddModal.classList.add('show');
+    }
+
     // Handle close modal buttons
     closeShowModal.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -128,14 +134,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Check for validation errors and keep modal open
-    const validationErrors = document.getElementById('validation-errors');
-    if (validationErrors) {
-        const hasErrors = validationErrors.getAttribute('data-has-errors') === 'true';
-        const isCreateForm = validationErrors.getAttribute('data-is-create') === 'true';
+    // Education modal elements
+    const editEducationModal = document.getElementById('edit-education-modal');
+    const editEducationForm = document.getElementById('edit-education-form');
+    const editEducationBtns = document.querySelectorAll('.edit-education-btn');
 
-        if (hasErrors && isCreateForm && showAddModal) {
-            showAddModal.classList.add('show');
-        }
+    // Handle close modal buttons for educations
+    closeShowModal.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            // Close edit education modal
+            if (editEducationModal) {
+                editEducationModal.classList.remove('show');
+            }
+        });
+    });
+
+    // Handle edit education buttons
+    if (editEducationBtns.length > 0) {
+        editEducationBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                // Get education data from button attributes
+                const educationId = btn.getAttribute('data-id');
+                const institution = btn.getAttribute('data-institution');
+                const period = btn.getAttribute('data-period');
+                const degree = btn.getAttribute('data-degree');
+                const department = btn.getAttribute('data-department');
+
+                // Populate form fields
+                const institutionInput = document.getElementById('edit-education-institution');
+                const periodInput = document.getElementById('edit-education-period');
+                const degreeInput = document.getElementById('edit-education-degree');
+                const departmentInput = document.getElementById('edit-education-department');
+
+                if (institutionInput) institutionInput.value = institution;
+                if (periodInput) periodInput.value = period;
+                if (degreeInput) degreeInput.value = degree;
+                if (departmentInput) departmentInput.value = department;
+
+                // Update form action URL
+                if (editEducationForm) {
+                    editEducationForm.action = `/admin/educations/${educationId}`;
+                }
+
+                // Show edit modal
+                if (editEducationModal) {
+                    editEducationModal.classList.add('show');
+                }
+            });
+        });
     }
+
+    // Handle delete confirmations with SweetAlert
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const form = this.closest('.delete-form');
+            const educationName = this.getAttribute('data-education-name');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `You are about to delete "${educationName}". This action cannot be undone!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+
+
 });

@@ -28,6 +28,9 @@ class SkillController extends Controller
         $request->validate([
             'name' => 'required',
             'proficiency' => 'required',
+        ], [
+            'name.required' => 'The name field is required.',
+            'proficiency.required' => 'The proficiency field is required.',
         ]);
         $skill = new Skill();
         $skill->name = $request->name;
