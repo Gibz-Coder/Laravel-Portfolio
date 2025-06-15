@@ -3,7 +3,7 @@
 <section class="skills" id="skills">
     <div class="titlebar">
         <h1>Skills </h1>
-        <button class="open-modal">New Skill</button>
+        <button class="btn-icon success open-modal">New Skill</button>
     </div>
     @include('admin.skills.create')
     @include('includes.flash_message')
@@ -66,14 +66,13 @@
                         data-skill-service-id="{{ $skill->service_id ?? '' }}">
                     <i class="fas fa-pencil-alt"></i>
                 </button>
-                
-                <form method="POST" action="{{ route('admin.skills.destroy', $skill->id) }}" style="display: inline;">
-                    @method('DELETE')
-                    @csrf
-                    <button class="danger" class="far fa-trash-alt" onclick="return confirm('Are you sure you want to delete this skill?')">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </form>
+                    <form method="POST" action="{{ route('admin.skills.destroy', $skill->id) }}" style="display: inline;" class="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn-icon danger delete-btn" data-skill-name="{{ $skill->name }}">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
             </div>
         </div>
         @endforeach

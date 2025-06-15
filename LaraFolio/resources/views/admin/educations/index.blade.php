@@ -3,7 +3,7 @@
 <section class="educations" id="educations">
     <div class="titlebar">
         <h1>Educations </h1>
-        <button class="open-modal">New Education</button>
+        <button class="btn-icon success open-modal">New Education</button>
     </div>
     @include('admin.educations.create')
     @include('includes.flash_message')

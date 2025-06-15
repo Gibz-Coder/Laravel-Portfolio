@@ -6,6 +6,8 @@ use Database\Seeders\MediaSeeder;
 use Database\Seeders\ServiceSeeder;
 use Database\Seeders\SkillSeeder;
 use Database\Seeders\EducationSeeder;
+use Database\Seeders\ExperienceSeeder;
+use Database\Seeders\ProjectSeeder;
 
 // use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ServiceSeeder::class);
         $this->call(SkillSeeder::class);
         $this->call(EducationSeeder::class);
+        $this->call(ExperienceSeeder::class);
+        $this->call(ProjectSeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',

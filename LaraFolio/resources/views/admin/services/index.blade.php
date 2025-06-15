@@ -3,7 +3,7 @@
 <section class="services" id="services">
     <div class="titlebar">
         <h1>Services</h1>
-        <button class="open-modal">New Service</button>
+        <button class="btn-icon success open-modal">New Service</button>
     </div>
     @include('admin.services.create')
     @include('includes.flash_message')
@@ -45,13 +45,13 @@
                 <button class="btn-icon success edit-service-btn" data-id="{{ $service->id }}" data-name="{{ $service->name }}" data-icon="{{ $service->icon }}" data-description="{{ $service->description }}">
                     <i class="fas fa-pencil-alt"></i>
                 </button>
-                <form method="POST" action="{{ route('admin.services.destroy', $service->id) }}" style="display: inline;">
-                    {{ method_field('DELETE') }}
-                    @csrf
-                    <button type="submit" class="danger" onclick="return confirm('Are you sure you want to delete this service?')">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </form>
+                    <form method="POST" action="{{ route('admin.services.destroy', $service->id) }}" style="display: inline;" class="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn-icon danger delete-btn" data-service-name="{{ $service->name }}">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
             </div>
         </div>
         @endforeach
@@ -94,8 +94,9 @@
 
 </section>
 
-@if ($errors->any())
-    <div id="validation-errors" style="display: none;" data-has-errors="true" data-is-create="{{ !old('service_id') ? 'true' : 'false' }}"></div>
-@endif
+    <!-- Hidden input to detect validation errors for create form -->
+    @if ($errors->any() && !request()->has('edit'))
+        <input type="hidden" id="has-create-errors" value="1">
+    @endif
 
 @endsection

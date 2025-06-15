@@ -44,13 +44,13 @@
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/projects*')) ? 'nav-active' : '' }}" href="{{ url('/admin/projects') }}">
-                            <span><i class="fas fa-bars"> </i></span>
+                            <span><i class="fas fa-project-diagram"> </i></span>
                             <span>Projects</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/testimonials*')) ? 'nav-active' : '' }}" href="{{ url('/admin/testimonials') }}">
-                            <span><i class="fas fa-medal"> </i></span>
+                            <span><i class="fas fa-quote-left"> </i></span>
                             <span>Testimonials</span>
                         </a>
                     </li>

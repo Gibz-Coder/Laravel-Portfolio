@@ -184,6 +184,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Experience modal elements
+    const editExperienceModal = document.getElementById('edit-experience-modal');
+    const editExperienceModalInner = editExperienceModal ? editExperienceModal.querySelector('.modal') : null;
+    const editExperienceForm = document.getElementById('edit-experience-form');
+    const editExperienceBtns = document.querySelectorAll('.edit-experience-btn');
+
+    // Handle close modal buttons for experiences
+    closeShowModal.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            // Close edit experience modal
+            if (editExperienceModal) {
+                editExperienceModal.style.display = 'none';
+            }
+            if (editExperienceModalInner) {
+                editExperienceModalInner.classList.remove('show');
+            }
+        });
+    });
+
+    // Handle edit experience buttons
+    if (editExperienceBtns.length > 0) {
+        editExperienceBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                // Get experience data from button attributes
+                const experienceId = btn.getAttribute('data-id');
+                const company = btn.getAttribute('data-company');
+                const period = btn.getAttribute('data-period');
+                const position = btn.getAttribute('data-position');
+
+                // Populate form fields
+                const companyInput = document.getElementById('edit-experience-company');
+                const periodInput = document.getElementById('edit-experience-period');
+                const positionInput = document.getElementById('edit-experience-position');
+
+                if (companyInput) companyInput.value = company;
+                if (periodInput) periodInput.value = period;
+                if (positionInput) positionInput.value = position;
+
+                // Update form action URL
+                if (editExperienceForm) {
+                    editExperienceForm.action = `/admin/experiences/${experienceId}`;
+                }
+
+                // Show edit modal
+                if (editExperienceModal) {
+                    editExperienceModal.style.display = 'block';
+                }
+                if (editExperienceModalInner) {
+                    editExperienceModalInner.classList.add('show');
+                }
+            });
+        });
+    }
+
     // Handle delete confirmations with SweetAlert
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
@@ -191,10 +245,14 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const form = this.closest('.delete-form');
             const educationName = this.getAttribute('data-education-name');
+            const experienceName = this.getAttribute('data-experience-name');
+
+            // Determine what we're deleting
+            const itemName = educationName || experienceName || 'this item';
 
             Swal.fire({
                 title: 'Are you sure?',
-                text: `You are about to delete "${educationName}". This action cannot be undone!`,
+                text: `You are about to delete "${itemName}". This action cannot be undone!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',

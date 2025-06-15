@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,21 @@ Route::get('/admin/educations', [EducationController::class, 'index'])->name('ad
 Route::post('/admin/educations', [EducationController::class, 'store'])->name('admin.educations.store');
 Route::patch('/admin/educations/{education}', [EducationController::class, 'update'])->name('admin.educations.update');
 Route::delete('/admin/educations/{education}', [EducationController::class, 'destroy'])->name('admin.educations.destroy');
+
+//Experience Routes//
+Route::get('/admin/experiences', [ExperienceController::class, 'index'])->name('admin.experiences.index');
+Route::post('/admin/experiences', [ExperienceController::class, 'store'])->name('admin.experiences.store');
+Route::patch('/admin/experiences/{experience}', [ExperienceController::class, 'update'])->name('admin.experiences.update');
+Route::delete('/admin/experiences/{experience}', [ExperienceController::class, 'destroy'])->name('admin.experiences.destroy');
+
+//Project Routes//
+Route::get('/admin/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
+Route::get('/admin/projects/create', [ProjectController::class, 'create'])->name('admin.projects.create');
+Route::post('/admin/projects', [ProjectController::class, 'store'])->name('admin.projects.store');
+Route::get('/admin/projects/{project}/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
+Route::patch('/admin/projects/{project}', [ProjectController::class, 'update'])->name('admin.projects.update');
+Route::delete('/admin/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
 
 Route::get('/{any}', function () {
     return view('notFoundPage');
