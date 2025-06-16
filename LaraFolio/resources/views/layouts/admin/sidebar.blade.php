@@ -56,13 +56,13 @@
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/messages*')) ? 'nav-active' : '' }}" href="{{ url('/admin/messages') }}">
-                            <span><i class="fas fa-envelope"> </i></span>
+                            <span><i class="fas fa-comment"> </i></span>
                             <span>Messages</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ (request()->is('admin/users*')) ? 'nav-active' : '' }}" href="{{ url('/admin/users') }}">
-                            <span><i class="fas fa-user"> </i></span>
+                            <span><i class="fas fa-users"> </i></span>
                             <span>Users</span>
                         </a>
                     </li>

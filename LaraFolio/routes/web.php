@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,13 @@ Route::get('/admin/projects/{project}/edit', [ProjectController::class, 'edit'])
 Route::patch('/admin/projects/{project}', [ProjectController::class, 'update'])->name('admin.projects.update');
 Route::delete('/admin/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
 
+//Testimonial Routes//
+Route::get('/admin/testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials.index');
+Route::get('/admin/testimonials/create', [TestimonialController::class, 'create'])->name('admin.testimonials.create');
+Route::post('/admin/testimonials', [TestimonialController::class, 'store'])->name('admin.testimonials.store');
+Route::get('/admin/testimonials/{testimonial}/edit', [TestimonialController::class, 'edit'])->name('admin.testimonials.edit');
+Route::patch('/admin/testimonials/{testimonial}', [TestimonialController::class, 'update'])->name('admin.testimonials.update');
+Route::delete('/admin/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('admin.testimonials.destroy');
 
 Route::get('/{any}', function () {
     return view('notFoundPage');
