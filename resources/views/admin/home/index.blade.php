@@ -1,4 +1,4 @@
-@extends('layouts.admin.base')
+@extends('layouts.admin.home')
 @section('content')    
 
 <section class="overview" id="overview">
