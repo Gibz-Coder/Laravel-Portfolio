@@ -9,6 +9,7 @@ use Database\Seeders\EducationSeeder;
 use Database\Seeders\ExperienceSeeder;
 use Database\Seeders\ProjectSeeder;
 use Database\Seeders\TestimonialSeeder;
+use Database\Seeders\MessageSeeder;
 
 // use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ExperienceSeeder::class);
         $this->call(ProjectSeeder::class);
         $this->call(TestimonialSeeder::class);
+        $this->call(MessageSeeder::class);
 
         // User::factory()->create([
         //     'name' => 'Test User',

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,9 @@ Route::post('/admin/testimonials', [TestimonialController::class, 'store'])->nam
 Route::get('/admin/testimonials/{testimonial}/edit', [TestimonialController::class, 'edit'])->name('admin.testimonials.edit');
 Route::patch('/admin/testimonials/{testimonial}', [TestimonialController::class, 'update'])->name('admin.testimonials.update');
 Route::delete('/admin/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('admin.testimonials.destroy');
+
+//Message Routes//
+Route::get('/admin/messages', [MessageController::class, 'index'])->name('admin.messages.index');
 
 Route::get('/{any}', function () {
     return view('notFoundPage');
