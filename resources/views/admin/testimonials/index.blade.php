@@ -71,14 +71,6 @@
                         </button>
                     </form>
                 </div>
-                <!-- <div>
-                    <button class="btn-icon success">
-                        <i class="fas fa-pencil-alt"></i>
-                    </button>
-                    <button class="btn-icon danger" >
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </div> -->
             </div>
          @endforeach
         

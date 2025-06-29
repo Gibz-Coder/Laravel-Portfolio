@@ -5,7 +5,7 @@
         <div class="titlebar">
             <h1>Messages </h1>
         </div>
-
+        @include('includes.flash_message')
         <div class="table">
 
             <div class="table-filter">
@@ -39,7 +39,11 @@
             <!-- item 1 -->
              @foreach ($messages as $message)
                 <div class="message_table-items">
-                    <p>{{ $message->name }}</p> 
+                    <p>
+                        <a href="{{ route('admin.messages.edit', $message->id) }}" class="link" style="text-decoration: none; color:blue">
+                            {{ $message->name }}
+                        </a>
+                    </p> 
                     <p>{{ $message->email }}</p>
                     <p>{{ $message->subject }}</p>
                     <p>{{ $message->description }}</p>
@@ -55,9 +59,13 @@
                         @endif
                     </p>
                     <div>
-                        <button class="btn danger">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
+                        <form method="POST" action="{{ route('admin.messages.destroy', $message->id) }}" style="display: inline;" class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn-icon danger delete-btn" data-service-name="{{ $message->name }}">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
              @endforeach

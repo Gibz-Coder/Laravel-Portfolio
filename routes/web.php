@@ -79,6 +79,10 @@ Route::delete('/admin/testimonials/{testimonial}', [TestimonialController::class
 
 //Message Routes//
 Route::get('/admin/messages', [MessageController::class, 'index'])->name('admin.messages.index');
+Route::get('/admin/messages/{message}', [MessageController::class, 'edit'])->name('admin.messages.edit');
+route::patch('/admin/messages/{message}', [MessageController::class, 'update_status'])->name('admin.messages.update_status');
+Route::delete('/admin/messages/{message}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
+
 
 Route::get('/{any}', function () {
     return view('notFoundPage');
