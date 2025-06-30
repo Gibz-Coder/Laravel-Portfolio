@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,9 @@ Route::get('/admin/messages', [MessageController::class, 'index'])->name('admin.
 Route::get('/admin/messages/{message}', [MessageController::class, 'edit'])->name('admin.messages.edit');
 route::patch('/admin/messages/{message}', [MessageController::class, 'update_status'])->name('admin.messages.update_status');
 Route::delete('/admin/messages/{message}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
+
+//User Routes//
+Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
 
 
 Route::get('/{any}', function () {
