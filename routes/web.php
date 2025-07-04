@@ -86,7 +86,8 @@ Route::delete('/admin/messages/{message}', [MessageController::class, 'destroy']
 
 //User Routes//
 Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
-
+Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
 Route::get('/{any}', function () {
     return view('notFoundPage');
