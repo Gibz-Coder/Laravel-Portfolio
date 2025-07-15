@@ -48,7 +48,7 @@
                 <p>{{ $user->email }}</p>
                 <p>{{ $user->role }}</p>
                 <div>
-                    <button class="btn-icon success edit-user-btn" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-email="{{ $user->email }}" data-bio="{{ $user->bio }}" data-role="{{ $user->role }}">
+                    <button class="btn-icon success open-modal edit-user-btn" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-email="{{ $user->email }}" data-bio="{{ $user->bio }}" data-role="{{ $user->role }}">
                         <i class="fas fa-pencil-alt"></i>
                     </button>
                     <form method="POST" action="{{ route('admin.users.destroy', $user->id) }}" style="display: inline;" class="delete-form">
@@ -62,5 +62,55 @@
             </div>
         @endforeach
     </div>
+
+    <!-- Edit User Modal -->
+    <form method="POST" action="" id="edit-user-form">
+        @csrf
+        @method('PATCH')
+        <div class="modal" id="edit-user-modal">
+            <div class="modal-content">
+                <h2>Edit User</h2>
+                <span class="close-modal">×</span>
+                <hr>
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="name" id="edit-user-name" value=""/>
+
+                    <label>Email</label>
+                    <input type="text" name="email" id="edit-user-email" value=""/>
+                    
+                    <label>Bio</label>
+                    <textarea cols="20" rows="3" name="bio" id="edit-user-bio"></textarea>
+                    
+                    <p>Type</p>
+                    <select name="role" id="edit-user-role">
+                        <option disabled selected>Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">Standard User</option>
+                    </select>
+
+                    <label>Password</label>
+                    <input type="password" name="password" id="edit-user-password" placeholder="Leave blank to keep current password">
+                </div>
+                <hr>
+                <div class="modal-footer">
+                    <button type="button" class="close-modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="secondary">
+                        <span><i class="fa fa-spinner fa-spin"></i></span>
+                        Update User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
 </section>
+
+    <!-- Hidden input to detect validation errors for create form -->
+    @if ($errors->any() && !request()->has('edit'))
+        <input type="hidden" id="has-create-errors" value="1">
+    @endif
+
 @endsection

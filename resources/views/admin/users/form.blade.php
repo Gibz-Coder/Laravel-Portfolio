@@ -1,6 +1,6 @@
 <div class="modal " >
     <div class="modal-content">
-        <h2>Create User</h2>
+        <h2>{{$formMode === 'edit' ? 'Edit User' : 'Create User' }}</h2>
         <span class="close-modal">×</span>
         <hr>
         <div>
@@ -33,7 +33,7 @@
             </button>
             <button class="secondary close-modal">
                 <span><i class="fa fa-spinner fa-spin"></i></span>
-                Save
+                {{$formMode === 'edit' ? 'Update User' : 'Save User' }}
             </button>
         </div>
     </div>
