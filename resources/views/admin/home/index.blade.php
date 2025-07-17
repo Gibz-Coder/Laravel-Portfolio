@@ -12,81 +12,113 @@
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Skills</p>
-                    <span>16</span>
+                    @if($skillCount > 0)
+                        <span>{{ $skillCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Skills</a>
+                    <a href="{{ route('admin.skills.index') }}">View Skills</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Educations</p>
-                    <span>16</span>
+                    @if($educationCount > 0)
+                        <span>{{ $educationCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Educations</a>
+                    <a href="{{ route('admin.educations.index') }}">View Educations</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Experience</p>
-                    <span>16</span>
+                    @if ($experienceCount > 0)
+                        <span>{{ $experienceCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Experiences</a>
+                    <a href="{{ route('admin.experiences.index') }}">View Experiences</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Services</p>
-                    <span>16</span>
+                    @if ($serviceCount > 0)
+                        <span>{{ $serviceCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Services</a>
+                    <a href="{{ route('admin.services.index') }}">View Services</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Projects</p>
-                    <span>9</span>
+                    @if ($projectCount > 0)
+                        <span>{{ $projectCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Projects</a>
+                    <a href="{{ route('admin.projects.index') }}">View Projects</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Testimonials</p>
-                    <span>9</span>
+                    @if ($testimonialCount > 0)
+                        <span>{{ $testimonialCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Testimonials</a>
+                    <a href="{{ route('admin.testimonials.index') }}">View Testimonials</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Messages</p>
-                    <span>9</span>
+                    @if ($messageCount > 0)
+                        <span>{{ $messageCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Messages</a>
+                    <a href="{{ route('admin.messages.index') }}">View Messages</a>
                 </div>
             </div>
             <div class="overview_cards-item card">
                 <div class="overview_data">
                     <p>Users</p>
-                    <span>9</span>
+                    @if ($userCount > 0)
+                        <span>{{ $userCount }}</span>
+                    @else
+                        <span>0</span>
+                    @endif
                 </div>
                 <div class="overview_link">
                     <span></span>
-                    <a href="#">View Users</a>
+                    <a href="{{ route('admin.users.index') }}">View Users</a>
                 </div>
             </div>
             
@@ -101,28 +133,18 @@
                 <div class="table ui-card">
                     <div class="overview_table-header">
                         <p>Image</p> 
-                        <p>Product</p>
+                        <p>Project</p>
                     </div>
+                    @foreach ($projects as $project)
                     <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/no-image.png') }}" />
-                        <a>Product item.name item.name item.name</a>
+                        @if ($project->image)
+                            <img src="{{ asset('assets/img/' . $project->image) }}" alt="" class="project_img-list">
+                        @else
+                            <img src="{{ asset('assets/img/no-image.png') }}" alt="" class="project_img-list">
+                        @endif
+                        <a>{{ $project->title }}</a>
                     </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/no-image.png') }}" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/no-image.png') }}" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/no-image.png') }}" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/no-image.png') }}" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div>
@@ -134,26 +156,17 @@
                         <p>Image</p> 
                         <p>Testimonial</p>
                     </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/avatar.jpg') }}" style="height:60px;width:60px;" />
-                        <a>Product item.name item.name item.name</a>
+                    @foreach ($testimonials as $testimonial)
+                    <div class="overview_table-items">
+                        @if ($testimonial->image)
+                            <img src="{{ asset('assets/img/' . $testimonial->image) }}" alt="" class="testimonial_img-list">
+                        @else
+                            <img src="{{ asset('assets/img/no-image.png') }}" alt="" class="testimonial_img-list">
+                        @endif
+                        <a>{{ $testimonial->name }}</a>
+                        <p>{{ Str::limit ($testimonial->testimony, 50) }}</p>
                     </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/avatar.jpg') }}" style="height:60px;width:60px;" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/avatar.jpg') }}" style="height:60px;width:60px;" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/avatar.jpg') }}" style="height:60px;width:60px;" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
-                    <div class="overview_table-items" >
-                        <img src="{{ asset('assets/img/avatar.jpg') }}" style="height:60px;width:60px;" />
-                        <a>Product item.name item.name item.name</a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -168,120 +181,22 @@
             <h1>Skills</h1>
         </div>
         <div class="overview_skills">
-            <div class="overview_skills-title">
-                <h2>Frontend developer</h2>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">HTML</h3>
-                    <span class="skills_number">90%</span>
+            @foreach ($services as $service)
+                <div class="overview_skills-title">
+                    <h2>{{ $service->name }}</h2>
                 </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_html"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">CSS</h3>
-                    <span class="skills_number">80%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_css"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">JavaScript</h3>
-                    <span class="skills_number">75%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_js"></span>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="overview_skills">
-            <div class="overview_skills-title">
-                <h2>Backend developer</h2>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">PHP</h3>
-                    <span class="skills_number">90%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_html"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Node Js</h3>
-                    <span class="skills_number">80%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_css"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Python</h3>
-                    <span class="skills_number">75%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_js"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Ruby</h3>
-                    <span class="skills_number">75%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_js"></span>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="overview_skills">
-            <div class="overview_skills-title">
-                <h2>Designer</h2>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Figma</h3>
-                    <span class="skills_number">90%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_html"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Sketch</h3>
-                    <span class="skills_number">80%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_css"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Adobe XD</h3>
-                    <span class="skills_number">75%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_js"></span>
-                </div>
-            </div>
-            <div class="skills_data">
-                <div class="skills_titles">
-                    <h3 class="skills_name">Photoshop</h3>
-                    <span class="skills_number">75%</span>
-                </div>
-                <div class="skills_bar">
-                    <span class="skills_percentage skills_js"></span>
-                </div>
-            </div>
+                @foreach ($service->skills as $skill)
+                    <div class="skills_data">
+                        <div class="skills_titles">
+                            <h3 class="skills_name">{{ $skill->name }}</h3>
+                            <span class="skills_number">{{ $skill->proficiency }}%</span>
+                        </div>
+                        <div class="skills_bar">
+                            <span class="skills_percentage" style="width: {{ $skill->proficiency }}%;"></span>
+                        </div>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
     </div>
     

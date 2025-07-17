@@ -28,14 +28,39 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             const ctx = document.getElementById('myChart');
+
+            function dynamicColors() {
+                const r = Math.floor(Math.random() * 255);
+                const g = Math.floor(Math.random() * 255);
+                const b = Math.floor(Math.random() * 255);
+                return 'rgba(' + r + ',' + g + ',' + b + ', 0.5)';
+            }
+
+            function poolColors(a) {
+                const pool = [];
+                for (let i = 0; i < a; i++) {
+                    pool.push(dynamicColors());
+                }
+                return pool;
+            }
         
             new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: [
+                    @foreach ($skills as $skill)
+                        '{{ $skill->name }}',
+                    @endforeach
+                ],
                 datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: '# of Skills(%)',
+                backgroundColor: poolColors({{ count($skills) }}),
+                borderColor: poolColors({{ count($skills) }}),
+                data: [
+                    @foreach ($skills as $skill)
+                        '{{ $skill->proficiency }}',
+                    @endforeach
+                ],
                 borderWidth: 1
                 }]
             },
