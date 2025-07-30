@@ -37,5 +37,11 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="{{ asset('assets/js/main.js') }}"></script>
+
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Flash Messages -->
+        @include('includes.flash_message')
     </body>
 </html>

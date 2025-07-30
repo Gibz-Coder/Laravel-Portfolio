@@ -21,7 +21,7 @@
                             <div class="social_table-items">
                                 <p>{{ $media->link }}</p>
                                 <button class="service_table-icon">
-                                    <i class="fab {{ $media->icon }}"></i>
+                                    <i class="uil uil-{{ $media->icon }}"></i>
                                 </button>
                                 <form method="POST" action="{{ route('admin.medias.destroy', $media->id) }}" style="display: inline;" class="delete-form">
                                     @csrf

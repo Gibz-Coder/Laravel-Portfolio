@@ -38,18 +38,18 @@
         <div class="service_table-items">
             <p>{{ $service->name }}</p>
             <button class="service_table-icon">
-                <i class="fas {{ $service->icon }}"></i>
+                <i class="uil- {{ $service->icon }}"></i>
             </button>
             <p>{{ $service->description }}</p>
             <div>
                 <button class="btn-icon success edit-service-btn" data-id="{{ $service->id }}" data-name="{{ $service->name }}" data-icon="{{ $service->icon }}" data-description="{{ $service->description }}">
-                    <i class="fas fa-pencil-alt"></i>
+                    <i class="uil uil-edit"></i>
                 </button>
                     <form method="POST" action="{{ route('admin.services.destroy', $service->id) }}" style="display: inline;" class="delete-form">
                         @csrf
                         @method('DELETE')
                         <button type="button" class="btn-icon danger delete-btn" data-service-name="{{ $service->name }}">
-                            <i class="far fa-trash-alt"></i>
+                            <i class="uil uil-trash-alt"></i>
                         </button>
                     </form>
             </div>
@@ -71,9 +71,9 @@
                     <label>Service Name</label>
                     <input type="text" name='name' id="edit-service-name" value=""/>
 
-                    <label>Icon Class <span style="color:#006fbb;">(Find your suitable icon: <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>)</span></label>
-                    <small style="color:#666;">Examples: fa-code, fa-server, fa-laptop-code, fa-paint-brush, fa-mobile-alt</small>
-                    <input type="text" name='icon' id="edit-service-icon" value="" placeholder="fa-code"/>
+                    <label>Icon Class <span style="color:#006fbb;">(Find your suitable icon: <a href="https://iconscout.com/unicons" target="_blank">Unicons</a>)</span></label>
+                    <small style="color:#666;">Examples: code-alt, server, laptop, brush-alt, mobile-android (without uil- prefix)</small>
+                    <input type="text" name='icon' id="edit-service-icon" value="" placeholder="code-alt"/>
 
                     <label>Description</label>
                     <textarea cols="10" rows="5" name='description' id="edit-service-description"></textarea>
@@ -84,7 +84,7 @@
                         Cancel
                     </button>
                     <button type="submit" class="secondary">
-                        <span><i class="fa fa-spinner fa-spin"></i></span>
+                        <span><i class="uil uil-spinner-alt"></i></span>
                         Update
                     </button>
                 </div>

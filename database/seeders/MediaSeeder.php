@@ -17,27 +17,37 @@ class MediaSeeder extends Seeder
             [
                 'name' => "Facebook",
                 'link' => "https://www.facebook.com",
-                'icon' => "fa-facebook",
+                'icon' => "facebook-f",
             ],
             [
                 'name' => "Twitter",
                 'link' => "https://www.twitter.com",
-                'icon' => "fa-twitter",
+                'icon' => "twitter",
             ],
             [
                 'name' => "Instagram",
                 'link' => "https://www.instagram.com",
-                'icon' => "fa-instagram",
+                'icon' => "instagram",
             ],
             [
                 'name' => "LinkedIn",
                 'link' => "https://www.linkedin.com",
-                'icon' => "fa-linkedin",
+                'icon' => "linkedin-alt",
             ],
             [
                 'name' => "GitHub",
                 'link' => "https://www.github.com",
-                'icon' => "fa-github",
+                'icon' => "github-alt",
+            ],
+            [
+                'name' => "Facebook Messenger",
+                'link' => "https://www.messenger.com",
+                'icon' => "facebook-messenger",
+            ],
+            [
+                'name' => "Telegram",
+                'link' => "https://t.me/",
+                'icon' => "telegram",
             ],
         ]);
     }

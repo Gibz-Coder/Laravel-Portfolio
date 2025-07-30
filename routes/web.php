@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//Contact Routes//
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/{any}', function () {
     return view('notFoundPage');

@@ -21,9 +21,9 @@ class AboutSeeder extends Seeder
                 'phone' => "+63-997-608-9161",
                 'email' => "gibzhapita@gmail.com",
                 'address' => "Batangas, Philippines",
-                'description' => "Fullstack Web Developer with extencive knowledge",
-                'summary' => "High level experience in web...",
-                'tagline' => "Fullstack Web Developer...",
+                'description' => "Fullstack Web Developer with extencive knowledge and years of experience",
+                'summary' => "Fullstack Web Developer with extencive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work",
+                'tagline' => "Fullstack Web Developer with extencive knowledge and years of experience, working in web technologies and UI/UX design, delivering quality work",
                 'cv' => "gibzhapita-cv.pdf",
             ]
         ]);

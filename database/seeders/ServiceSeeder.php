@@ -16,17 +16,17 @@ class ServiceSeeder extends Seeder
         DB::table('services')->insert([
             [
                 'name' => "Backend Developer",
-                'icon' => "fa-server",
+                'icon' => "server",
                 'description' => "Sapiente odit ut ipsam neque dolorum et. Officiis error dicta pariatur quidem. Saepe dignissimos et at error dolores asperiores. Earum id sed ratione ducimus enim voluptate praesentium.",
             ],
             [
                 'name' => "Frontend Developer",
-                'icon' => "fa-laptop-code",
+                'icon' => "laptop",
                 'description' => "Sapiente odit ut ipsam neque dolorum et. Officiis error dicta pariatur quidem. Saepe dignissimos et at error dolores asperiores. Earum id sed ratione ducimus enim voluptate praesentium.",
             ],
             [
                 'name' => "UI/UX Designer",
-                'icon' => "fa-paint-brush",
+                'icon' => "brush-alt",
                 'description' => "Sapiente odit ut ipsam neque dolorum et. Officiis error dicta pariatur quidem. Saepe dignissimos et at error dolores asperiores. Earum id sed ratione ducimus enim voluptate praesentium.",
             ],
         ]);

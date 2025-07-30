@@ -1,8 +1,12 @@
 <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="#home" class="nav_logo">
-                    John Doe
+                <a href="/admin/dashboard" class="nav_logo">
+                    @if(isset($about->name))
+                        {{ $about->name }}
+                    @else
+                        Portfolio
+                    @endif
                 </a>
 
                 <div class="nav_menu" id="nav-menu">

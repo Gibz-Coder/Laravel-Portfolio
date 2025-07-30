@@ -3,7 +3,7 @@
     @csrf
     <div class="social_table-heading">
         <p>Link</p>
-        <span style="color:#006fbb;">(Find your icon class: Font Awesome)  (e.g. fa-facebook)</span>
+        <span style="color:#006fbb;">Find your icon class: (e.g. facebook-f, twitter, instagram, linkedin-alt, github-alt, facebook-messenger, telegram)</span>
         <p></p>
     </div>
     <p></p>

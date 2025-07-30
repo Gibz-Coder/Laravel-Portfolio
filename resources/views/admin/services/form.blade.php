@@ -8,10 +8,10 @@
             {!! $errors->first('name', '<p class="alert">:message</p>') !!}
             <input type="text" name='name' value="{{ isset($service->name) ? $service->name : '' }}"/>
 
-            <label>Icon Class <span style="color:#006fbb;">(Find your suitable icon: <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a>)</span></label>
-            <small style="color:#666;">Examples: fa-code, fa-server, fa-laptop-code, fa-paint-brush, fa-mobile-alt</small>
+            <label>Icon Class <span style="color:#006fbb;">(Find your suitable icon: <a href="https://iconscout.com/unicons" target="_blank">Unicons</a>)</span></label>
+            <small style="color:#666;">Examples: code-alt, server, laptop, brush-alt, mobile-android (without uil- prefix)</small>
             {!! $errors->first('icon', '<p class="alert">:message</p>') !!}
-            <input type="text" name='icon' value="{{ isset($service->icon) ? $service->icon : '' }}" placeholder="fa-code"/>
+            <input type="text" name='icon' value="{{ isset($service->icon) ? $service->icon : '' }}" placeholder="code-alt"/>
             
             <label>Description</label>
             {!! $errors->first('description', '<p class="alert">:message</p>') !!}
@@ -23,7 +23,7 @@
                 Cancel
             </button>
             <button type="submit" class="secondary">
-                <span><i class="fa fa-spinner fa-spin"></i></span>
+                <span><i class="uil uil-spinner-alt"></i></span>
                 {{ $formMode === 'edit' ? 'Update' : 'Save' }}
             </button>
         </div>
