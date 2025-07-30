@@ -11,8 +11,21 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Add security headers middleware globally
+        $middleware->web(append: [
+            \App\Http\Middleware\SecurityHeaders::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        // Custom error reporting for production
+        $exceptions->reportable(function (Throwable $e) {
+            if (app()->environment('production')) {
+                \Log::error('Production Error', [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'trace' => $e->getTraceAsString(),
+                ]);
+            }
+        });
     })->create();

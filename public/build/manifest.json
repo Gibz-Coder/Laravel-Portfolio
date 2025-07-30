@@ -1,0 +1,21 @@
+{
+  "_vendor-ZCwa5Plv.js": {
+    "file": "assets/vendor-ZCwa5Plv.js",
+    "name": "vendor"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "name": "app",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Lz1YynT2.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-ZCwa5Plv.js"
+    ]
+  }
+}
